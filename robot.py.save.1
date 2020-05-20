@@ -1,0 +1,29 @@
+import socketio
+from ev3dev2.motor import LargeMotor, OUTPUT_C, OUTPUT_B, MoveTank
+from ev3dev2.sensor.lego import TouchSensor
+from time import sleep
+
+sio = socketio.Client()
+tank_pair = MoveTank(OUTPUT_C, OUTPUT_B, motor_class=LargeMotor)
+ts = TouchSensor()
+
+host = 'https://robot-warehouse-server.herokuapp.com/'
+#host = 'http://192.168.1.32:5000'
+
+@sio.on('connect')
+def connect():
+        print('Connected')
+
+@sio.on('run')
+def run():
+	print("Running...")
+	tank_pair.on(left_speed=10, right_speed=10)
+	while not ts.is_pressed:
+		sleep(0.01)
+	tank_pair.on_for_seconds(left_speed=-40, right_speed=-40, seconds=0.15, brake=True, block=True)
+
+if __name__ == '__main__':
+	socket = sio.connect(host)
+#	sio.wait()
+	while (socket.connected:
+		pass

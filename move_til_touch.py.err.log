@@ -1,0 +1,4 @@
+from: can't read /var/mail/ev3dev2.sensor.lego
+from: can't read /var/mail/ev3dev2.motor
+from: can't read /var/mail/time
+/home/robot/HelloWorldEv3/move_til_touch.py: 5: /home/robot/HelloWorldEv3/move_til_touch.py: Syntax error: "(" unexpected

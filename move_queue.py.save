@@ -1,0 +1,23 @@
+from ev3dev2.motor import LargeMotor, MediumMotor, OUTPUT_C, OUTPUT_B, OUTPUT_A, MoveTank
+from ev3dev2.sensor.lego import TouchSensor, ColorSensor
+from time import sleep
+from queue import Queue
+
+SPEED = 10
+tank_pair = MoveTank(OUTPUT_C, OUTPUT_B)
+
+queue = Queue()
+queue.put('left')
+queue.put('right')
+queue.put('straight')
+queue.put('back')
+
+while not queue.empty():
+	print(queue.get())
+
+
+
+def go_straight:
+	mo
+
+def go_left:
